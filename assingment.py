@@ -54,7 +54,10 @@ def select_op(choice):
     elif choice == '/':
         print(num1, '/' , num2, '=', divide(num1,num2))
 
-        
+    elif choice == '**':
+        print(num1, '**' , num2, '=', power(num1,num2))
+
+
 
    
 
