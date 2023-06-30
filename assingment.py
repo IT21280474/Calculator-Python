@@ -1,23 +1,7 @@
 def add(a,b):
     return a+b 
 
-def subtract(a, b):
-    return a - b
 
-def multiply(a, b):
-    return a * b
-
-def divide(a,b):
-    try:
-        return a/b
-    except Exception as e:
-        print(e)
-
-def power(a, b):
-    return a ** b
-
-def remainder(a, b):
-    return a % b
 
 #-------------------------------------
 #TODO: Write the select_op(choice) function here
