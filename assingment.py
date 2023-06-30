@@ -25,8 +25,8 @@ def select_op(choice):
         return -1
     elif choice in ('+', '-', '*', '/', '^', '%'):
         while True:
-            first_num = input("Enter first number: ")
-            second_num = input("Enter second number: ")
+            first_num = input("Enter first number: ""\n")
+            second_num = input("Enter second number: ""\n")
             try:
                 num1 = float(first_num)
                 num2 = float(second_num)
