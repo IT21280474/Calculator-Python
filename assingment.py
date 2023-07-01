@@ -1,3 +1,5 @@
+#TODO: Write the functions for arithmatic operations here
+#These functions should cover Task 2
 def add(a, b):
     return a + b
 
@@ -10,9 +12,8 @@ def multiply(a, b):
 def divide(a, b):
     try:
         return a / b
-    except ZeroDivisionError:
-        print("Error: Division by zero")
-        return None
+    except Exception as e:
+        print(e)
 
 def power(a, b):
     return a ** b
@@ -20,50 +21,58 @@ def power(a, b):
 def remainder(a, b):
     return a % b
 
+#-------------------------------------
+#TODO: Write the select_op(choice) function here
+#This function sould cover Task 1 (Section 2) and Task 3
+
 def select_op(choice):
     if choice == '#':
         return -1
+    elif choice == '$':
+        return 0
     elif choice in ('+', '-', '*', '/', '^', '%'):
         while True:
-            first_num = input("Enter first number: ""\n")
-            second_num = input("Enter second number: ""\n")
+            num1 = str(input("Enter first number: "))
+            print(num1)
+            if num1.endswith('$'):
+                return 0
+            if num1.endswith('#'):
+                return -1
             try:
-                num1 = float(first_num)
-                num2 = float(second_num)
+                num1 = float(num1)
                 break
             except ValueError:
                 print("Not a valid number, please enter again")
-
-        try:
-            if choice == '+':
-                print(f"{num1} + {num2} = {add(num1, num2)}")
-
-            elif choice == '-':
-                print(f"{num1} - {num2} = {subtract(num1, num2)}")
-
-            elif choice == '*':
-                print(f"{num1} * {num2} = {multiply(num1, num2)}")
-
-            elif choice == '/':
-                result = divide(num1, num2)
-                if result is not None:
-                    print(f"{num1} / {num2} = {result}")
-
-            elif choice == '^':
-                print(f"{num1} ^ {num2} = {power(num1, num2)}")
-
-            elif choice == '%':
-                print(f"{num1} % {num2} = {remainder(num1, num2)}")
-
-        except:
+                continue
+        while True:
+            num2 = str(input("Enter second number: "))
+            print(num2)
+            if num2.endswith('$'):
+                return 0
+            if num2.endswith('#'):
+                return -1
+            try:
+                num2 = float(num2)
+                break
+            except ValueError:
+                print("Not a valid number, please enter again")
+                continue
+        if choice == '+':
+            print(num1, "+", num2, "=", add(num1, num2))
+        elif choice == '-':
+            print(num1, "-", num2, "=", subtract(num1, num2))
+        elif choice == '*':
+            print(num1, "*", num2, "=", multiply(num1, num2))
+        elif choice == '/':
+            print(num1, "/", num2, "=", divide(num1, num2))
+        elif choice == '^':
+            print(num1, "^", num2, "=", power(num1, num2))
+        elif choice == '%':
+            print(num1, "%", num2, "=", remainder(num1, num2))
+        else:
             print("Something Went Wrong")
-
-    elif choice == '$':
-        return 0
-
     else:
-        print("Error: Unrecognized operation")
-        return None
+        print("Unrecognized operation")
 
 
 
